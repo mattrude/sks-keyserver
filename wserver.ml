@@ -305,7 +305,7 @@ let send_result cout ?(error_code = 200) ?(content_type = "text/html; charset=UT
    * This should probably be passed down in the request itself.
    *)
   if content_type = "application/pgp-keys; charset=UTF-8" then
-    fprintf cout "Content-disposition: attachment; filename=gpgkey.asc\r\n";
+    fprintf cout "Content-disposition: attachment; filename=gpgkey.txt\r\n";
   (*
    * Allow access from Javascript code on other sites.
    * For details, see https://en.wikipedia.org/wiki/Cross-origin_resource_sharing.

@@ -261,7 +261,7 @@ struct
             else Armor.encode_pubkey_string (Key.to_string_multiple keys)
           in
           if request.machine_readable then
-            ("application/pgp-keys; charset=UTF-8", count, aakeys)
+            ("text/plain; charset=UTF-8", count, aakeys)
           else
             ("text/html; charset=UTF-8",
              count,
