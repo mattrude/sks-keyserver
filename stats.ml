@@ -124,7 +124,7 @@ let histogram_to_table time_to_string histogram =
   let table_entries =
     List.map ~f:hist_entry_to_table_entry (Array.to_list histogram)
   in
-  "<table summary=\"Statistics\" border=\"1\">\n" ^
+  "<table summary=\"Statistics\" border=\"1\" class=\"statistics\">\n" ^
   "<tr><td>Time</td><td>New Keys</td><td>Updated Keys</td></tr>\n" ^
   String.concat "\n" table_entries ^
   "\n</table>\n"
@@ -160,7 +160,7 @@ let info_tables () =
       with Failure "No partners specified" -> []
     in
     let peers = List.map ~f:(fun s -> sprintf "<tr><td>%s</td></tr>\n" s) peers in
-    sprintf "<h2>Outgoing Mailsync Peers</h2>\n<table summary=\"Mailsync Peers\">\n%s</table>"
+    sprintf "%s"
       (String.concat ~sep:"" peers)
   in
   sprintf "%s\n\n<table summary=\"Keyserver Peers\" width=\"100%%\">
@@ -172,6 +172,7 @@ let info_tables () =
     settings gossip_peers mail_peers
 
 
+(*    sprintf "<h2>Outgoing Mailsync Peers</h2>\n<table summary=\"Mailsync Peers\">\n%s</table>"  *)
 (************************************************************)
 
 let generate_html_stats_page log size =
